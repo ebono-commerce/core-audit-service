@@ -47,6 +47,12 @@ module.exports = class CustomError extends Error {
           message: errorResponse?.message
         });
         break;
+      case "user-service":
+        errors.push({
+          code: `${downstream_system.toUpperCase()}_${STATUS_CODES[httpCode]}`,
+          message: errorResponse?.errors[0]?.message
+        });
+        break;
       default:
         errors.push({
           code: "INTERNAL_SERVER_ERROR",

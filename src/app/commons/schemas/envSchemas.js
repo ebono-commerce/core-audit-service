@@ -26,6 +26,9 @@ exports.envSchema = {
     },
     CLOUD_BUCKET_NAME: {
       type: "string"
+    },
+    CORE_USER_URI: {
+      type: "string"
     }
   }
 };

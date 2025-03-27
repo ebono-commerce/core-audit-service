@@ -5,16 +5,16 @@ exports.getAuditInfo = entity => {
   const currentTimeStamp = new Date(Date.now()).toISOString();
   const obj = {
     created_at: currentTimeStamp,
-    updated_at: currentTimeStamp
+    source_updated_at: currentTimeStamp
   };
   if (!audit) {
     return obj;
   }
-  const { created_by, updated_by, api_version } = audit;
+  const { created_by, source_updated_by, api_version } = audit;
   return {
     ...(api_version && { api_version }),
     ...(created_by && { created_by }),
-    ...(updated_by && { updated_by }),
+    ...(source_updated_by && { source_updated_by }),
     ...obj
   };
 };

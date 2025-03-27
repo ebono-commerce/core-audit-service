@@ -32,8 +32,8 @@ const auditSchema = {
     api_version: { type: "string" },
     created_by: { type: "string" },
     created_at: { type: "string", format: "date-time" },
-    updated_by: { type: "string" },
-    updated_at: { type: "string", format: "date-time" }
+    source_updated_by: { type: "string" },
+    source_updated_at: { type: "string", format: "date-time" }
   }
 };
 

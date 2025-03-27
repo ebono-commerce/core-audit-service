@@ -11,12 +11,12 @@ autoscaling:
   enabled: false
 
 image:
-  repository: us.gcr.io/kpn-staging/core-audit-service
+  repository: ebono/ebono-staging/core-audit-service
   tag: $IMAGE_TAG
   pullPolicy: IfNotPresent
   pullSecret:
     enabled: true
-    registry: us.gcr.io
+    registry: asia-docker.pkg.dev
     username: username
     password: password
 

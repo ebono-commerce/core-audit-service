@@ -1,6 +1,6 @@
 const {
   getAuthToken
-} = require("@kovai-pazhamudir-nilayam/kpn-platform-token");
+} = require("@ebono-commerce/ebono-platform-token");
 
 function externalCalls(fastify) {
   async function fetchUserCall({ user_id, logTrace }) {

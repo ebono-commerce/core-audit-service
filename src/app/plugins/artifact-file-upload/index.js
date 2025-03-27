@@ -4,39 +4,11 @@ const { Buffer } = require("node:buffer");
 const FormData = require("form-data");
 const {
   getAuthToken
-} = require("@kovai-pazhamudir-nilayam/kpn-platform-token");
+} = require("@ebono-commerce/ebono-platform-token");
 
 const DEFAULT_PARSER_OPTIONS = {
   fields: [
     { label: "Department", value: "department_category_name" },
-    { label: "Subclass", value: "subclass_name" },
-    { label: "SKU Code", value: "ksin" },
-    { label: "KPN Title", value: "kpn_product_name" },
-    { label: "KPN Price", value: "kpn_price" },
-    { label: "KPN URL", value: "kpn_url" },
-
-    { label: "Zepto Title", value: "zepto_product_name" },
-    { label: "Zepto Price", value: "zepto_price" },
-    { label: "Zepto URL", value: "zepto_url" },
-    { label: "Zepto Price Updated At", value: "zepto_price_updated_at" },
-
-    { label: "BigBasket Title", value: "big_basket_product_name" },
-    { label: "BigBasket Price", value: "big_basket_price" },
-    { label: "BigBasket URL", value: "big_basket_url" },
-    {
-      label: "BigBasket Price Updated At",
-      value: "big_basket_price_updated_at"
-    },
-
-    { label: "BlinkIt Title", value: "blinkit_product_name" },
-    { label: "BlinkIt Price", value: "blinkit_price" },
-    { label: "BlinkIt URL", value: "blinkit_url" },
-    { label: "BlinkIt Price Updated At", value: "blinkit_price_updated_at" },
-
-    { label: "Instamart Title", value: "instamart_product_name" },
-    { label: "Instamart Price", value: "instamart_price" },
-    { label: "Instamart URL", value: "instamart_url" },
-    { label: "Instamart Price Updated At", value: "instamart_price_updated_at" }
   ]
 };
 

@@ -15,12 +15,12 @@ autoscaling:
   targetMemoryUtilizationPercentage: 80
 
 image:
-  repository: us-docker.pkg.dev/kpn-platform-components/us.gcr.io/core-audit-service
+  repository: asia-docker.pkg.dev/ebono-platform-components/us.gcr.io/core-audit-service
   tag: $IMAGE_TAG
   pullPolicy: IfNotPresent
   pullSecret:
     enabled: true
-    registry: us-docker.pkg.dev
+    registry: asia-docker.pkg.dev
     username: username
     password: password
 
@@ -42,7 +42,7 @@ ingress:
   # kubernetes.io/tls-acme: "true"
   uriPrefix: /audit/
   hosts:
-    - services-uat.kpnfresh.com
+    - services-uat.ebono.com
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -82,10 +82,8 @@ podAntiAffinity:
 
 environmentVariables:
   ENVIRONMENT: UAT
-  CORE_KPN_URI: https://kcloud.kovaipazhamudir.com/mobile
-  CORE_KPN_IMAGE_BASE_URL: https://ibo.com
   AUTHN_SERVICE_URI: https://ibo.com
-  CORE_USER_URI: https://services-uat.kpnfresh.com/users
+  CORE_USER_URI: https://services-uat.ebono.com/users
 
 
 gcp:
@@ -105,4 +103,4 @@ destinationPolicy:
 
 jwt_policy:
   enabled: true
-  audience: https://services-staging.kpnfarmfresh.com
+  audience: https://services-staging.ebono.com

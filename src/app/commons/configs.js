@@ -3,8 +3,8 @@ const SWAGGER_CONFIGS = {
   mode: "dynamic",
   openapi: {
     info: {
-      title: "KPN User Service",
-      description: "API Docs for the KPN User Service",
+      title: "core audit service",
+      description: "API Docs for the core audit service",
       version: "0.1.0"
     },
     externalDocs: {
@@ -13,15 +13,15 @@ const SWAGGER_CONFIGS = {
     },
     servers: [
       {
-        url: "https://services-staging.kpnfarmfresh.com/something",
+        url: "https://services-staging.ebono.com/something",
         description: "Staging server"
       },
       {
-        url: "https://services.kpnfarmfresh.com/something",
+        url: "https://services.ebono.com/something",
         description: "Production server"
       }
     ],
-    tags: [{ name: "KPN User API's" }]
+    tags: [{ name: "core audit service API's" }]
   }
 };
 

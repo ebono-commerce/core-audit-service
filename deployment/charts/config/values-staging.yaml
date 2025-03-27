@@ -15,7 +15,7 @@ autoscaling:
   targetMemoryUtilizationPercentage: 80
 
 image:
-  repository: us-docker.pkg.dev/kpn-platform-components/us.gcr.io/core-user-service
+  repository: us-docker.pkg.dev/kpn-platform-components/us.gcr.io/core-audit-service
   tag: $IMAGE_TAG
   pullPolicy: IfNotPresent
   pullSecret:
@@ -40,9 +40,8 @@ ingress:
     {}
     # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
-  uriPrefix: /catalog/
+  uriPrefix: /audit/
   hosts:
-    - services-staging.kpnfarmfresh.com
     - services-staging.kpnfresh.com
   tls: []
   #  - secretName: chart-example-tls
@@ -86,12 +85,14 @@ environmentVariables:
   CORE_KPN_URI: https://kcloud.kovaipazhamudir.com/mobile
   CORE_KPN_IMAGE_BASE_URL: https://ibo.com
   AUTHN_SERVICE_URI: https://ibo.com
+  CORE_USER_URI: https://services-staging.kpnfresh.com/users
+
 
 gcp:
   enabled: false
 
 database:
-  enabled: false
+  enabled: true
 
 destinationPolicy:
   maxConnections: 6000

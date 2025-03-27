@@ -7,7 +7,7 @@ metadata:
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ template "name" . }}
     app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: core-user-service
+    app.kubernetes.io/name: core-audit-service
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
@@ -30,7 +30,7 @@ spec:
         sidecar.istio.io/proxyMemoryLimit: 650Mi
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
-      serviceAccountName: kpn-core-commerce-services
+      serviceAccountName: artifact-service
       {{- if .Values.image.pullSecret.enabled }}
       imagePullSecrets:
       - name: artifact-registry-auth
@@ -82,22 +82,22 @@ spec:
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: catalog-db-secrets
+                  name: core-audit-db-secrets
                   key: DB_USER
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: catalog-db-secrets
+                  name: core-audit-db-secrets
                   key: DB_PASSWORD
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: catalog-db-secrets
+                  name: core-audit-db-secrets
                   key: DB_HOST
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:
-                  name: catalog-db-secrets
+                  name: core-audit-db-secrets
                   key: DB_NAME
           {{- end }}
           {{- range $key, $value := .Values.environmentVariables }}

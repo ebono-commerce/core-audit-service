@@ -9,10 +9,10 @@ env:
   GCR_GKE_PROJECT: ebono-platform-components
   GITHUB_SHA: ${{ github.sha }}
   GKE_ZONE: asia-south1
-  IMAGE: core-user-service
+  IMAGE: core-audit-service
   REGISTRY_HOSTNAME: asia-docker.pkg.dev
-  REPOSITORY: us.gcr.io
-  APP_NAME: core-user-service
+  REPOSITORY : ebono
+  APP_NAME: core-audit-service
 
 jobs:
   node-build-deploy:
@@ -43,7 +43,7 @@ jobs:
           location: "asia-south1"
 
       - name: build-login-publish-docker image
-        uses: ebomart/build-publish-docker-artifact@main
+        uses: ebono-commerce/build-publish-image@main
         with:
           registry_host: $REGISTRY_HOSTNAME
           gke_project: $GCR_GKE_PROJECT
@@ -64,4 +64,4 @@ jobs:
         env:
           HELM_OPTS: --set-string environmentVariables.GCP_PROJECT_ID=${{ secrets.GCP_PROJECT_ID_STG }}
         run: |
-          helm upgrade --install --wait core-user-service deployment/charts/$APP_NAME --namespace core-commerce $HELM_OPTS --set image.tag=$GITHUB_SHA  -f deployment/charts/config/values-staging.yaml
+          helm upgrade --install --wait core-audit-service deployment/charts/$APP_NAME --namespace common $HELM_OPTS --set image.tag=$GITHUB_SHA  -f deployment/charts/config/values-staging.yaml

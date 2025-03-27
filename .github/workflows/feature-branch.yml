@@ -9,7 +9,7 @@ on:
       - beta-*
 
 env:
-  IMAGE: core-user-service
+  IMAGE: core-audit-service
 
 jobs:
   node-build-deploy:
@@ -42,7 +42,7 @@ jobs:
       - name: OPA Kubernetes
         uses: ebomart/opa-kubernetes@v2.1.16
         with:
-          file: opa/core-user-service/templates/deployment.yaml
+          file: opa/core-audit-service/templates/deployment.yaml
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3

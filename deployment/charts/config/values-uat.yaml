@@ -15,7 +15,7 @@ autoscaling:
   targetMemoryUtilizationPercentage: 80
 
 image:
-  repository: asia-docker.pkg.dev/ebono-platform-components/us.gcr.io/core-audit-service
+  repository: asia-docker.pkg.dev/ebono-platform-components/ebono/core-audit-service
   tag: $IMAGE_TAG
   pullPolicy: IfNotPresent
   pullSecret:

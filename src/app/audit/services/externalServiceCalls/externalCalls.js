@@ -1,6 +1,4 @@
-const {
-  getAuthToken
-} = require("@ebono-commerce/ebono-platform-token");
+const { getAuthToken } = require("@ebono-commerce/ebono-platform-token");
 
 function externalCalls(fastify) {
   async function fetchUserCall({ user_id, logTrace }) {

@@ -103,7 +103,8 @@ const trasformInputForAuditLog = ({
     api_url,
     change_mode,
     change_type,
-    outlet_id
+    outlet_id,
+    created_by: "audit-system"
   };
 };
 
@@ -118,9 +119,8 @@ const transformInputForEntitySnapshot = ({
     entity_id,
     domain,
     snapshot: currentSnapshot,
-    outlet_id: currentSnapshot?.outlet_id
-    // source_updated_at,
-    // source_updated_by
+    outlet_id: currentSnapshot?.outlet_id,
+    created_by: "audit-system"
   };
 };
 

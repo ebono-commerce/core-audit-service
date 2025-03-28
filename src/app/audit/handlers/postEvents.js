@@ -7,14 +7,11 @@ function postEventsHandler(fastify) {
     const { logTrace, body } = request;
 
     const entity_type = request.body.message?.attributes?.entity_type;
-    const user_id = request.body.message?.attributes?.user_id;
-
     const { payload } = fastify.parseEvent({ event: body, logTrace });
-
     const response = await postEvents({
       body: payload,
       entity_type,
-      user_id,
+      user_id: payload.source_updated_by,
       logTrace
     });
     return reply.code(200).send(response);

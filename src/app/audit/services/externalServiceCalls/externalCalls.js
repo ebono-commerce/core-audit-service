@@ -5,7 +5,7 @@ function externalCalls(fastify) {
     try {
       const authToken = await getAuthToken("PLATFORM");
       const response = await fastify.request({
-        url: `${fastify.config.CORE_USER_URI}/v2/iam/users/${user_id}`,
+        url: `${fastify.config.CORE_USER_URI}/v1/iam/users/${user_id}`,
         method: "GET",
         headers: {
           ...logTrace,

@@ -11,7 +11,6 @@ function postEventsHandler(fastify) {
     const response = await postEvents({
       body: payload,
       entity_type,
-      user_id: payload.source_updated_by,
       logTrace
     });
     return reply.code(200).send(response);

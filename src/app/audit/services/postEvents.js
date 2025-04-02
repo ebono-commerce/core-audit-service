@@ -19,7 +19,7 @@ function postEventsService(fastify) {
   const { createAudityLog } = auditLogsRepo(fastify);
   const { fetchUserCall } = externalCalls(fastify);
   // eslint-disable-next-line complexity
-  return async ({ body, entity_type, user_id, logTrace }) => {
+  return async ({ body, entity_type, logTrace }) => {
     const currentSnapshot = Array.isArray(body) ? body : [body];
 
     const { entity_id: CONFIGURED_ENTITY_ID, domain } =
@@ -34,7 +34,7 @@ function postEventsService(fastify) {
     }
 
     const userResponse = await fetchUserCall({
-      user_id,
+      user_id: body.updated_by,
       logTrace
     });
 

@@ -11,7 +11,7 @@ function externalCalls(fastify) {
           ...logTrace,
           Authorization: authToken
         },
-        path: `${fastify.config.CORE_USER_URI}/v1/payment-intents`,
+        path: `${fastify.config.CORE_USER_URI}/v1/iam/user/${user_id}`,
         downstream_system: "user-service",
         source_system: "core-audit-service",
         domain: "user-fetch",

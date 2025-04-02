@@ -86,16 +86,15 @@ const trasformInputForAuditLog = ({
   } = currentSnapshot;
 
   const source_updated_by = userResponse
-  ? `${userResponse.name}_${userResponse.phone_number}`
-  : updated_by;
+    ? `${userResponse.name}_${userResponse.phone_number}`
+    : updated_by;
 
   return {
     domain,
     entity_id,
     entity_type,
     source_updated_at: updated_at,
-    source_updated_by:
-      source_updated_by !== undefined ? source_updated_by : updated_by,
+    source_updated_by,
     is_updated_by_system,
     changes,
     channel,

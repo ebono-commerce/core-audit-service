@@ -19,7 +19,7 @@ function externalCalls(fastify) {
       });
       return response;
     } catch (error) {
-      fastify.log.error(`Failed to fetch user data`);
+      fastify.log.error(`Failed to fetch user data = ${error?.message}`);
       return null;
     }
   }
